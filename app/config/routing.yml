@@ -1,0 +1,39 @@
+api:
+    resource: "@ApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+
+api_article_all:
+    path:    /articles
+    defaults:   { _controller: ApiBundle:Articles:all, _format: ~ }
+    methods: [GET]
+
+
+api_article_get:
+    path:    /articles/{id}
+    defaults:   { _controller: ApiBundle:Articles:get, _format: ~ }
+    requirements: { 'id': '\d+' }
+    methods: [GET]
+
+
+api_article_new:
+    path:    /articles
+    defaults: { _controller: ApiBundle:Articles:new, _format: ~ }
+    methods: [POST, PUT]
+
+    
+api_answer_new:
+    path:    /answer
+    defaults: { _controller: ApiBundle:Articles:newAnswer, _format: ~ }
+    methods: [POST, PUT]
+    
+    
+api_rate_new:
+    path:    /rate
+    defaults: { _controller: ApiBundle:Articles:newRate, _format: ~ }
+    methods: [POST, PUT]

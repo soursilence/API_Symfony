@@ -1,0 +1,7 @@
+{% block content %}
+    {% for flashMessage in app.session.flashbag.get('message') %}
+        <p>{{ flashMessage }}</p>
+    {% endfor %}
+    {{ form(form) }}
+
+{% endblock %}
